@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{max_mind}
-  s.version = "0.0.0"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["P J Kelly", "Nate Clark"]
@@ -19,13 +19,13 @@ Gem::Specification.new do |s|
      "README.rdoc",
      "Rakefile",
      "VERSION",
-     "heythisisnate-max_mind.gemspec",
      "lib/autotest/discover.rb",
      "lib/max_mind.rb",
      "lib/max_mind/service.rb",
      "lib/max_mind/service/city.rb",
      "lib/max_mind/service/city_isp_org.rb",
      "lib/max_mind/service/country.rb",
+     "max_mind.gemspec",
      "script/console",
      "script/destroy",
      "script/generate",
