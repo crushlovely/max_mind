@@ -5,7 +5,7 @@ require File.dirname(__FILE__) + '/lib/max_mind'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
-    gemspec.name = "heythisisnate-max_mind"
+    gemspec.name = "max_mind"
     gemspec.summary = "Ruby library for interacting with the MaxMind GeoIP Web Services"
     gemspec.email = "nate@nateclark.com"
     gemspec.homepage = "http://github.com/heythisisnate/max_mind"
