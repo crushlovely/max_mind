@@ -2,6 +2,10 @@ require File.dirname(__FILE__) + '/spec_helper.rb'
 
 describe MaxMind::Service do
   
+  before(:each) do
+    MaxMind::Service.license_key = nil
+  end
+  
   describe "class attributes" do 
 
     it "should have a @@base_url defined" do
@@ -50,6 +54,24 @@ describe MaxMind::Service do
       end
 
     end
+    
+    describe ".license_key=" do
+    
+      it "allows the service subclass to inherit the license key" do
+        MaxMind::Service.license_key = 'abcdefg'
+        MaxMind::CityService.license_key.should == 'abcdefg'
+      end
+      
+    end
+    
+    describe ".base_url=" do
+      it "allows the service subclass to inherit the license key" do
+        MaxMind::Service.base_url = 'http://geoip3.maxmind.com'
+        MaxMind::CityService.base_url.should == 'http://geoip3.maxmind.com'
+      end
+    end
+    
+    
 
     describe "instance methods" do
     

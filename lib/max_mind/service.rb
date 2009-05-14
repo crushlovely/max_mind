@@ -1,8 +1,8 @@
 module MaxMind
   class Service
-    class_inheritable_accessor :license_key
+    cattr_accessor :license_key
 
-    class_inheritable_accessor :base_url
+    cattr_accessor :base_url
     self.base_url = 'http://geoip1.maxmind.com'
 
     class_inheritable_accessor :base_path
