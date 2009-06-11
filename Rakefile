@@ -6,11 +6,11 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gemspec|
     gemspec.name = "max_mind"
-    gemspec.summary = "Ruby library for interacting with the MaxMind GeoIP Web Services"
-    gemspec.email = "nate@nateclark.com"
+    gemspec.summary = "Ruby library for interacting with the MaxMind GeoIP Web Services."
+    gemspec.email = ["pj@crushlovely.com", "nate@nateclark.com"]
     gemspec.homepage = "http://github.com/heythisisnate/max_mind"
-    gemspec.description = "Ruby library for interacting with the MaxMind GeoIP Web Services"
-    gemspec.authors = ["P J Kelly", "Nate Clark"]
+    gemspec.description = "Ruby library for interacting with the MaxMind GeoIP Web Services."
+    gemspec.authors = ["PJ Kelly", "Nate Clark"]
   end
 rescue LoadError
   puts "Jeweler not available. Install it with: sudo gem install technicalpickles-jeweler -s http://gems.github.com"
