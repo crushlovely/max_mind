@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name = %q{max_mind}
-  s.version = "0.0.0"
+  s.version = "1.0.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["PJ Kelly", "Nate Clark"]
@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
     "PostInstall.txt",
     "README.rdoc",
     "Rakefile",
+    "VERSION.yml",
     "lib/autotest/discover.rb",
     "lib/max_mind.rb",
     "lib/max_mind/service.rb",
