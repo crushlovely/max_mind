@@ -28,5 +28,5 @@ module MaxMind
   class RequestError < StandardError; end
   class ResponseError < StandardError; end
 
-  VERSION = '0.1.1'
+  VERSION = '1.0.0'
 end
