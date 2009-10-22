@@ -1,32 +1,26 @@
-= maxmind
+= max_mind
 
-* FIX (url)
+    http://github.com/crushlovely/max_mind
 
 == DESCRIPTION:
 
-FIX (describe your package)
-
-== FEATURES/PROBLEMS:
-
-* FIX (list of features or problems)
+Ruby library for interacting with the MaxMind GeoIP Web Services.
 
 == SYNOPSIS:
 
-  FIX (code sample of usage)
+Just set your license key (an initializer is a good spot if you're using a Rails app):
 
-== REQUIREMENTS:
-
-* FIX (list of requirements)
+    MaxMind::Service.license_key = 'abcdefg'
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+    sudo gem install max_mind
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2008 FIXME full name
+Copyright (c) 2009 Crush + Lovely
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the

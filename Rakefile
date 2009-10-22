@@ -8,7 +8,7 @@ begin
     gemspec.name = "max_mind"
     gemspec.summary = "Ruby library for interacting with the MaxMind GeoIP Web Services."
     gemspec.email = ["pj@crushlovely.com", "nate@nateclark.com"]
-    gemspec.homepage = "http://github.com/heythisisnate/max_mind"
+    gemspec.homepage = "http://github.com/crushlovely/max_mind"
     gemspec.description = "Ruby library for interacting with the MaxMind GeoIP Web Services."
     gemspec.authors = ["PJ Kelly", "Nate Clark"]
   end
