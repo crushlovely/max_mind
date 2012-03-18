@@ -1,36 +1,51 @@
 module MaxMind
   class Service
-    cattr_accessor :license_key
+    class << self
+      @@base_url = 'http://geoip.maxmind.com'
 
-    cattr_accessor :base_url
-    self.base_url = 'http://geoip1.maxmind.com'
+      def license_key
+        @@license_key
+      end
 
-    class_inheritable_accessor :base_path
+      def license_key=(key)
+        @@license_key = key
+      end
+
+      def base_url
+        @@base_url
+      end
+
+      def base_url=(url)
+        @@base_url = url
+      end
+
+      attr_accessor :base_path
+
+      def fetch_for_ip(ip)
+        raise RequestError.new("Cannot make a request without an IP address") if ip.nil?
+        service = self.new
+        service.make_request(ip)
+        service.parsed_response
+      end
+    end
 
     attr_accessor :response
-
-    def self.fetch_for_ip(ip)
-      raise RequestError.new("Cannot make a request without an IP address") if ip.nil?
-      service = self.new
-      service.make_request(ip)
-      service.parsed_response
-    end
 
     # This method should be implemented in subclasses
     # Here, we're only returning the raw data returned by the server
     def parsed_response
-      self.response
+      response
     end
 
     def make_request(ip)
-      if license_key.nil?
+      if MaxMind::Service.license_key.nil?
         raise LicenseError.new("License Key is missing")
       end
 
-      uri = URI.parse(base_url)
+      uri = URI.parse(MaxMind::Service.base_url)
 
       begin
-        self.response = Net::HTTP.get(uri.host, build_path(:l => license_key, :i => ip), uri.port)
+        self.response = Net::HTTP.get(uri.host, build_path(:l => MaxMind::Service.license_key, :i => ip), uri.port)
       rescue EOFError => e
         raise ConnectionError, "The remote server dropped the connection"
       rescue Errno::ECONNRESET => e
@@ -44,12 +59,12 @@ module MaxMind
     end
 
     def build_path(params = {})
-      raise RequestError.new("Cannot build a valid request path!") unless !base_path.nil? && params.is_a?(Hash)
-      base_path + '?' + params.to_query_string
+      raise RequestError.new("Cannot build a valid request path!") unless !self.class.base_path.nil? && params.is_a?(Hash)
+      self.class.base_path + '?' + params.to_query_string
     end
 
     def valid_response?
-      !self.response.blank?
+      !response.nil? && !response.empty?
     end
   end
 end
