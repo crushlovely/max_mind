@@ -13,7 +13,7 @@ describe MaxMind::Service do
     end
 
     it "@@base_url should be http://geoip1.maxmind.com by default" do
-      MaxMind::Service.base_url.should == 'http://geoip1.maxmind.com'
+      MaxMind::Service.base_url.should == 'http://geoip.maxmind.com'
     end
 
     it "should have no license_key initially" do
@@ -39,14 +39,14 @@ describe MaxMind::Service do
     describe ".fetch_for_ip" do
   
       it "should raise a license error if api key is not set" do
-        lambda {
+        expect {
           MaxMind::Service.fetch_for_ip(@ip)
-        }.should raise_error(MaxMind::LicenseError)
+        }.to raise_error(MaxMind::LicenseError)
       end
 
-      describe "with license key" do
+      describe "with license key but without a base_url" do
 
-        it "should return response" do
+        it "should raise a RequestError" do
           MaxMind::Service.license_key = '1234'
           MaxMind::Service.fetch_for_ip(@ip).should == @sample_response
         end

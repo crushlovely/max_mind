@@ -1,12 +1,8 @@
 $:.unshift File.dirname(__FILE__)
 
-require 'rubygems'
-require 'active_support'
-
 require 'uri'
 require 'cgi'
 require 'net/http'
-require 'logger'
 require 'yaml'
 require 'csv'
 
@@ -16,6 +12,7 @@ class Hash
   end
 end
 
+require 'max_mind/version'
 require 'max_mind/service'
 require 'max_mind/service/country'
 require 'max_mind/service/city'
@@ -27,6 +24,4 @@ module MaxMind
   class ConnectionError < StandardError; end
   class RequestError < StandardError; end
   class ResponseError < StandardError; end
-
-  VERSION = '1.0.0'
 end
